@@ -136,9 +136,19 @@ function calcTips(arrBills)
   return arrTips
 }
 
-let tips = calcTips(bills);
+function getTotal(arrBills, arrTips)
+{
+  let totals = [];
+  for (let i = 0; i < arrBills.length; i++) {
+    totals.push(arrBills[i] + arrTips[i]);
+  }
+  return totals;
+}
 
-console.log(bills)
+let tips = calcTips(bills);
+let totals = getTotal(bills, tips);
+console.log(bills);
 console.log(tips);
+console.log(totals);
 
 
