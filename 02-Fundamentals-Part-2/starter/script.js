@@ -182,24 +182,66 @@ GOOD LUCK 😀
 //   console.log(`Property ${interestedIn} doesn't exist! Choose: firstName, lastName or birthdate`);
 // }
 
-const kalel = {
-  firstName: "Kalel",
-  lastName: "Poeta",
-  birthYear: 2005,
-  job: 'software dev',
-  friends: ["Zakria", "Aron", "Joseph", "Alex", "Grace", "Akina", "Molly", "Milena", "Becky"],
-  hasDriversLicense: true,
+// const kalel = {
+//   firstName: "Kalel",
+//   lastName: "Poeta",
+//   birthYear: 2005,
+//   job: 'software dev',
+//   friends: ["Zakria", "Aron", "Joseph", "Alex", "Grace", "Akina", "Molly", "Milena", "Becky"],
+//   hasDriversLicense: true,
 
-  calcAge: function()
+//   calcAge: function()
+//   {
+//     this.age = new Date().getFullYear() - this.birthYear;
+//     return this.age;
+//   },
+//   getSummary: function ()
+//   {
+//     return `${this.firstName} is a ${this.calcAge()}-year old teacher, and he ${this.hasDriversLicense ? "has a driver's license" : "doesn't have a driver's license"}`
+//   }
+// };
+
+// console.log(kalel.getSummary());
+
+// console.log(kalel['calcAge'](1014));
+
+// Coding Challenge #3
+
+/*
+Let's go back to Mark and John comparing their BMIs! This time, let's use objects to implement the calculations! Remember: BMI = mass / height ** 2 = mass / (height * height). (mass in kg and height in meter)
+
+1. For each of them, create an object with properties for their full name, mass, and height (Mark Miller and John Smith)
+2. Create a 'calcBMI' method on each object to calculate the BMI (the same method on both objects). Store the BMI value to a property, and also return it from the method.
+3. Log to the console who has the higher BMI, together with the full name and the respective BMI. Example: "John Smith's BMI (28.3) is higher than Mark Miller's (23.9)!"
+
+TEST DATA: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m tall.
+
+GOOD LUCK 😀
+*/
+
+const Mark = {
+  fullName: "Mark Miller",
+  mass: 78,
+  height: 1.69,
+
+  calcBMI: function ()
   {
-    this.age = new Date().getFullYear() - this.birthYear;
-    return this.age;
-  },
-  getSummary: function ()
-  {
-    return `${this.firstName} is a ${this.calcAge()}-year old teacher, and he ${this.hasDriversLicense ? "has a driver's license" : "doesn't have a driver's license"}`
+    this.BMI = this.mass / this.height ** 2;
+    return  this.BMI;
   }
 };
 
-console.log(kalel.getSummary());
-// console.log(kalel['calcAge'](1014));
+const John = {
+  fullName: "John Smith",
+  mass: 92,
+  height: 1.95,
+
+  calcBMI: function ()
+  {
+    this.BMI = this.mass / this.height ** 2;
+    return  this.BMI;
+  }
+}
+
+console.log(John.calcBMI() > Mark.calcBMI() ? `${John.fullName}'s BMI (${John.BMI}) is higher than ${Mark.fullName}'s (${Mark.calcBMI()})` :
+ `${Mark.fullName}'s BMI (${Mark.BMI}) is higher than ${John.fullName}'s (${John.BMI})` );
