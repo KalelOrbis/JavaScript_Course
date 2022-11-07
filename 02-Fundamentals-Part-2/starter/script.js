@@ -124,31 +124,37 @@ HINT: Remember that an array needs a value in each position, and that value can 
 GOOD LUCK 😀
 */
 
-const tip = bill => { bill >= 50  && bill <= 300 ? bill *= 0.15 : bill *= 0.2; return bill}; 
-let bills = [125, 555, 440];
+// const tip = bill => { bill >= 50  && bill <= 300 ? bill *= 0.15 : bill *= 0.2; return bill}; 
+// let bills = [125, 555, 440];
 
-function calcTips(arrBills)
-{
-  let arrTips = [];
-  for (let i = 0; i < arrBills.length; i++) {
-    arrTips.push(tip(arrBills[i]));
-  }
-  return arrTips
+// function calcTips(arrBills)
+// {
+//   let arrTips = [];
+//   for (let i = 0; i < arrBills.length; i++) {
+//     arrTips.push(tip(arrBills[i]));
+//   }
+//   return arrTips
+// }
+
+// function getTotal(arrBills, arrTips)
+// {
+//   let totals = [];
+//   for (let i = 0; i < arrBills.length; i++) {
+//     totals.push(arrBills[i] + arrTips[i]);
+//   }
+//   return totals;
+// }
+
+// let tips = calcTips(bills);
+// let totals = getTotal(bills, tips);
+// console.log(bills);
+// console.log(tips);
+// console.log(totals);
+
+const kalel = {
+  firstname: "Kalel",
+  lastname: "Poeta",
+  birthdate: "03.01.2005"
 }
 
-function getTotal(arrBills, arrTips)
-{
-  let totals = [];
-  for (let i = 0; i < arrBills.length; i++) {
-    totals.push(arrBills[i] + arrTips[i]);
-  }
-  return totals;
-}
-
-let tips = calcTips(bills);
-let totals = getTotal(bills, tips);
-console.log(bills);
-console.log(tips);
-console.log(totals);
-
-
+console.log(kalel.firstname);
