@@ -151,33 +151,55 @@ GOOD LUCK 😀
 // console.log(tips);
 // console.log(totals);
 
+// const kalel = {
+//   firstName: "Kalel",
+//   lastName: "Poeta",
+//   birthdate: "03.01.2005"
+// }
+
+// console.log(kalel.firstName);
+// console.log(kalel['firstName']);
+
+// const nameKey = 'name';
+// console.log(kalel['first' + nameKey]);
+// console.log(kalel['last' + nameKey]);
+
+// kalel.location = "Brazil";
+// kalel['twitter'] = "@kalelpoeta";
+// kalel.friends = ["Zakria", "Aron", "Joseph", "Alex", "Grace", "Akina", "Molly", "Milena", "Becky"];
+
+// //Use user input to retrieve property of object
+// const interestedIn = prompt("What do you want to know about Kalel? Choose: firstName, lastName or birthdate");
+// if (kalel[interestedIn] === kalel.friends) {
+//   console.log(`${kalel.firstName} has ${kalel.friends.length} friends. His bestfriend is ${kalel.friends[0]}`);
+// }
+// else if (kalel[interestedIn])
+// {
+//   console.log(kalel[interestedIn]);
+
+// }
+// else{
+//   console.log(`Property ${interestedIn} doesn't exist! Choose: firstName, lastName or birthdate`);
+// }
+
 const kalel = {
-  firstname: "Kalel",
-  lastname: "Poeta",
-  birthdate: "03.01.2005"
-}
+  firstName: "Kalel",
+  lastName: "Poeta",
+  birthYear: 2005,
+  job: 'software dev',
+  friends: ["Zakria", "Aron", "Joseph", "Alex", "Grace", "Akina", "Molly", "Milena", "Becky"],
+  hasDriversLicense: true,
 
-console.log(kalel.firstname);
-console.log(kalel['firstname']);
+  calcAge: function()
+  {
+    this.age = new Date().getFullYear() - this.birthYear;
+    return this.age;
+  },
+  getSummary: function ()
+  {
+    return `${this.firstName} is a ${this.calcAge()}-year old teacher, and he ${this.hasDriversLicense ? "has a driver's license" : "doesn't have a driver's license"}`
+  }
+};
 
-const nameKey = 'name';
-console.log(kalel['first' + nameKey]);
-console.log(kalel['last' + nameKey]);
-
-kalel.location = "Brazil";
-kalel['twitter'] = "@kalelpoeta";
-kalel.friends = ["Zakria", "Aron", "Joseph", "Alex", "Grace", "Akina", "Molly", "Milena", "Becky"];
-
-//Use user input to retrieve property of object
-const interestedIn = prompt("What do you want to know about Kalel? Choose: firstname, lastname or birthdate");
-if (kalel[interestedIn] === kalel.friends) {
-  console.log(`${kalel.firstname} has ${kalel.friends.length} friends. His bestfriend is ${kalel.friends[0]}`);
-}
-else if (kalel[interestedIn])
-{
-  console.log(kalel[interestedIn]);
-
-}
-else{
-  console.log(`Property ${interestedIn} doesn't exist! Choose: firstname, lastname or birthdate`);
-}
+console.log(kalel.getSummary());
+// console.log(kalel['calcAge'](1014));
