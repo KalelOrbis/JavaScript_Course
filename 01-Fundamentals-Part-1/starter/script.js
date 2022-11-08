@@ -6,7 +6,6 @@
 
 // console.log(country, continent, population, isIsland, language);
 
-
 /*
 Mark and John are trying to compare their BMI (Body Mass Index),
  which is calculated using the formula: BMI = mass / height ** 2 = mass / (height * height). 
@@ -26,20 +25,19 @@ const markWeightKg = 95;
 const markHeightM = 1.88;
 
 const johnWeightKg = 85;
-const johnHeightM= 1.76;
+const johnHeightM = 1.76;
 
 // function calculateBMI(height, weight)
 // {
 //     let bmi = weight / height**2;
-//     return bmi;    
+//     return bmi;
 // }
 
-const markBMI = markWeightKg / markHeightM **2;
+const markBMI = markWeightKg / markHeightM ** 2;
 const johnBMI = johnWeightKg / (johnHeightM * johnHeightM);
-const markHigherBMI = markBMI > johnBMI ;
+const markHigherBMI = markBMI > johnBMI;
 
 console.log(markHigherBMI);
-
 
 // Coding Challenge #2
 
@@ -56,12 +54,10 @@ HINT: Use an if/else statement 😉
 GOOD LUCK 😀
 */
 
-if(markHigherBMI){
-    console.log(`Mark's BMI ${markBMI} is higher than John's ${johnBMI}`);
-}
-else
-{
-    console.log(`John's ${johnBMI} is higher than Mark's BMI ${markBMI} `);
+if (markHigherBMI) {
+  console.log(`Mark's BMI ${markBMI} is higher than John's ${johnBMI}`);
+} else {
+  console.log(`John's ${johnBMI} is higher than Mark's BMI ${markBMI} `);
 }
 
 // Coding Challenge #3
@@ -88,39 +84,36 @@ TEST DATA BONUS 2: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 106
 GOOD LUCK 😀
 */
 
-const dolphinsScores = [ 97, 112, 101];
+const dolphinsScores = [97, 112, 101];
 const koalasScores = [109, 95, 106];
 
-function calculateAvg (score)
-{
-    let scoreSum = 0;
+function calculateAvg(score) {
+  let scoreSum = 0;
 
-    score.forEach( score => {
-        scoreSum += score;    
-    });
+  score.forEach((score) => {
+    scoreSum += score;
+  });
 
-    return scoreSum / score.length;
+  return scoreSum / score.length;
 }
 
 const dolphinAvg = calculateAvg(dolphinsScores);
 const koalaAvg = calculateAvg(koalasScores);
 
-if(dolphinAvg > koalaAvg && dolphinAvg > 100)
-{
-    console.log(`Dolphins won with an average of ${dolphinAvg } against ${koalaAvg}`);
-}
-else if(koalaAvg > dolphinAvg && koalaAvg > 100)
-{
-    console.log(`Koalas won with an average of ${koalaAvg } against ${dolphinAvg}`);
-
-}
-else if(koalaAvg === dolphinAvg && koalaAvg > 100 && dolphinAvg > 100)
-{
-    console.log(`It's a draw! Koala's Average: ${koalaAvg} | dolphins' average ${dolphinAvg}`);
-}
-else
-{
-    console.log("No winners");
+if (dolphinAvg > koalaAvg && dolphinAvg > 100) {
+  console.log(
+    `Dolphins won with an average of ${dolphinAvg} against ${koalaAvg}`
+  );
+} else if (koalaAvg > dolphinAvg && koalaAvg > 100) {
+  console.log(
+    `Koalas won with an average of ${koalaAvg} against ${dolphinAvg}`
+  );
+} else if (koalaAvg === dolphinAvg && koalaAvg > 100 && dolphinAvg > 100) {
+  console.log(
+    `It's a draw! Koala's Average: ${koalaAvg} | dolphins' average ${dolphinAvg}`
+  );
+} else {
+  console.log("No winners");
 }
 
 // Coding Challenge #4
@@ -140,5 +133,7 @@ GOOD LUCK 😀
 */
 
 const bill = 430;
-const tip = bill >= 50  && bill <= 300 ? bill * 0.15 : bill * 0.2; 
-console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);
+const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+console.log(
+  `The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`
+);

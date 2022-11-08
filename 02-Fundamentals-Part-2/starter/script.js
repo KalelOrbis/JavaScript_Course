@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // let hasDriversLicense = false;
 // const passTest = true;
@@ -68,7 +68,7 @@ GOOD LUCK 😀
 //   let scoreSum = 0;
 
 //   score.forEach( score => {
-//     scoreSum += score;    
+//     scoreSum += score;
 //   });
 
 //   return scoreSum / score.length;
@@ -124,7 +124,7 @@ HINT: Remember that an array needs a value in each position, and that value can 
 GOOD LUCK 😀
 */
 
-// const tip = bill => { bill >= 50  && bill <= 300 ? bill *= 0.15 : bill *= 0.2; return bill}; 
+// const tip = bill => { bill >= 50  && bill <= 300 ? bill *= 0.15 : bill *= 0.2; return bill};
 // let bills = [125, 555, 440];
 
 // function calcTips(arrBills)
@@ -246,7 +246,6 @@ GOOD LUCK 😀
 // console.log(John.calcBMI() > Mark.calcBMI() ? `${John.fullName}'s BMI (${John.BMI}) is higher than ${Mark.fullName}'s (${Mark.calcBMI()})` :
 //  `${Mark.fullName}'s BMI (${Mark.BMI}) is higher than ${John.fullName}'s (${John.BMI})` );
 
-
 ///////////////////////////////////////
 // Coding Challenge #4
 
@@ -273,7 +272,10 @@ const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 let tips = [];
 let totals = [];
 
-const tip = bill => { bill >= 50  && bill <= 300 ? bill *= 0.15 : bill *= 0.2; return bill}; 
+const tip = (bill) => {
+  bill >= 50 && bill <= 300 ? (bill *= 0.15) : (bill *= 0.2);
+  return bill;
+};
 
 for (let i = 0; i < bills.length; i++) {
   tips.push(tip(bills[i]));
@@ -281,13 +283,12 @@ for (let i = 0; i < bills.length; i++) {
 }
 
 const calcAvg = function (arr) {
-
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
     sum += arr[i];
   }
 
   return sum / arr.length;
-}
+};
 
 console.log(calcAvg(totals));
