@@ -4,6 +4,7 @@ const dice = document.querySelector(".dice");
 const btnRoll = document.querySelector(".btn--roll");
 const btnHold = document.querySelector(".btn--hold");
 const btnNewGame = document.querySelector(".btn--new");
+const testbtn = document.querySelector("#testbtn");
 let playerOneTurn = true;
 let playerOne = new Player(
   "playerOne",
@@ -50,7 +51,22 @@ function holdCurrentScore(player) {
   player.score += player.current;
   player.scoreLabel.textContent = player.score;
   changePlayers(player);
-  console.log(playerOneTurn);
+
+  if (player.score >= 100) {
+    player.section.classList.add("player--winner");
+    btnHold.disabled = true;
+    btnRoll.disabled = true;
+  }
+}
+
+function restartGame(player) {
+  playerOneTurn = true;
+  activatePlayerSection(playerOne, playerTwo);
+  playerOne.resetScores();
+  playerTwo.resetScores();
+  btnHold.disabled = false;
+  btnRoll.disabled = false;
+  player.section.classList.remove("player--winner");
 }
 
 btnRoll.addEventListener("click", () => {
@@ -62,8 +78,13 @@ btnHold.addEventListener("click", () => {
 });
 
 btnNewGame.addEventListener("click", () => {
-  playerOneTurn = true;
-  activatePlayerSection(playerOne, playerTwo);
-  playerOne.resetScores();
-  playerTwo.resetScores();
+  restartGame(
+    playerOne.section.classList.contains("player--winner")
+      ? playerOne
+      : playerTwo
+  );
+});
+
+testbtn.addEventListener("click", () => {
+  playerTwo.score = 100;
 });
