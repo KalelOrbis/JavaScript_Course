@@ -1,11 +1,12 @@
 "use strict";
-
+// Get elements
 const dice = document.querySelector(".dice");
 const btnRoll = document.querySelector(".btn--roll");
 const btnHold = document.querySelector(".btn--hold");
 const btnNewGame = document.querySelector(".btn--new");
 let playerOneTurn = true;
 
+// Ins
 let playerOne = new Player(
   "playerOne",
   0,
@@ -26,11 +27,13 @@ let playerTwo = new Player(
 
 dice.classList.add("hidden");
 
+// Highlight section for player who can roll the dice
 const activatePlayerSection = function (activePlayer, deactivePlayer) {
   activePlayer.section.classList.add("player--active");
   deactivePlayer.section.classList.remove("player--active");
 };
 
+// Swap players and null current score
 const changePlayers = function (deactivePlayer) {
   deactivePlayer.current = 0;
   deactivePlayer.currentLabel.textContent = deactivePlayer.current;
@@ -40,6 +43,8 @@ const changePlayers = function (deactivePlayer) {
     : activatePlayerSection(playerTwo, playerOne);
 };
 
+// Generates random number and displays image of diceface base on it
+// Let's it roll until a number 1 is rolled, then swaps player and nulls current score
 function rollDice(player) {
   let diceFace = Math.trunc(Math.random() * 6) + 1;
   dice.classList.remove("hidden");
@@ -53,6 +58,8 @@ function rollDice(player) {
   player.currentLabel.textContent = player.current;
 }
 
+// Adds the current score to the total score and switches active player
+// If the score of the player with the current turn is over 100 the game ends
 function holdCurrentScore(player) {
   player.score += player.current;
   player.scoreLabel.textContent = player.score;
@@ -65,6 +72,7 @@ function holdCurrentScore(player) {
   }
 }
 
+// Sets game to it's initial conditions
 function restartGame(player) {
   playerOneTurn = true;
   activatePlayerSection(playerOne, playerTwo);
@@ -75,14 +83,19 @@ function restartGame(player) {
   player.section.classList.remove("player--winner");
 }
 
+// Eventlisteners
+
+// If player one has the turn deliver player one as parameter otherwise deliver player two
 btnRoll.addEventListener("click", () => {
-  playerOneTurn ? rollDice(playerOne) : rollDice(playerTwo);
+  rollDice(playerOneTurn ? playerOne : playerTwo);
 });
 
 btnHold.addEventListener("click", () => {
-  playerOneTurn ? holdCurrentScore(playerOne) : holdCurrentScore(playerTwo);
+  holdCurrentScore(playerOneTurn ? playerOne : playerTwo);
 });
 
+// If player one has the winner class pass him as the parameter and remove the class
+// otherwise pass in player two
 btnNewGame.addEventListener("click", () => {
   restartGame(
     playerOne.section.classList.contains("player--winner")
