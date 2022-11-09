@@ -3,6 +3,7 @@
 const dice = document.querySelector(".dice");
 const btnRoll = document.querySelector(".btn--roll");
 const btnHold = document.querySelector(".btn--hold");
+const btnNewGame = document.querySelector(".btn--new");
 let playerOneTurn = true;
 let playerOne = new Player(
   "playerOne",
@@ -33,14 +34,6 @@ const changePlayers = function (deactivePlayer) {
     : activatePlayerSection(playerTwo, playerOne);
 };
 
-btnRoll.addEventListener("click", () => {
-  playerOneTurn ? rollDice(playerOne) : rollDice(playerTwo);
-});
-
-btnHold.addEventListener("click", () => {
-  playerOneTurn ? holdCurrentScore(playerOne) : holdCurrentScore(playerTwo);
-});
-
 function rollDice(player) {
   let diceFace = Math.trunc(Math.random() * 6) + 1;
   dice.setAttribute("src", `dice-${diceFace}.png`);
@@ -59,3 +52,18 @@ function holdCurrentScore(player) {
   changePlayers(player);
   console.log(playerOneTurn);
 }
+
+btnRoll.addEventListener("click", () => {
+  playerOneTurn ? rollDice(playerOne) : rollDice(playerTwo);
+});
+
+btnHold.addEventListener("click", () => {
+  playerOneTurn ? holdCurrentScore(playerOne) : holdCurrentScore(playerTwo);
+});
+
+btnNewGame.addEventListener("click", () => {
+  playerOneTurn = true;
+  activatePlayerSection(playerOne, playerTwo);
+  playerOne.resetScores();
+  playerTwo.resetScores();
+});

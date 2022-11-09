@@ -7,4 +7,11 @@ class Player {
     this.scoreLabel = scoreLabel;
     this.section = section;
   }
+
+  resetScores() {
+    this.current = 0;
+    this.score = 0;
+    this.currentLabel.textContent = this.current;
+    this.scoreLabel.textContent = this.score;
+  }
 }
