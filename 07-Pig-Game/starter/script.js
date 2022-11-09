@@ -4,8 +4,8 @@ const dice = document.querySelector(".dice");
 const btnRoll = document.querySelector(".btn--roll");
 const btnHold = document.querySelector(".btn--hold");
 const btnNewGame = document.querySelector(".btn--new");
-const testbtn = document.querySelector("#testbtn");
 let playerOneTurn = true;
+
 let playerOne = new Player(
   "playerOne",
   0,
@@ -14,6 +14,7 @@ let playerOne = new Player(
   document.querySelector("#score--0"),
   document.querySelector(".player--0")
 );
+
 let playerTwo = new Player(
   "playerTwo",
   0,
@@ -22,10 +23,14 @@ let playerTwo = new Player(
   document.querySelector("#score--1"),
   document.querySelector(".player--1")
 );
+
+dice.classList.add("hidden");
+
 const activatePlayerSection = function (activePlayer, deactivePlayer) {
   activePlayer.section.classList.add("player--active");
   deactivePlayer.section.classList.remove("player--active");
 };
+
 const changePlayers = function (deactivePlayer) {
   deactivePlayer.current = 0;
   deactivePlayer.currentLabel.textContent = deactivePlayer.current;
@@ -37,6 +42,7 @@ const changePlayers = function (deactivePlayer) {
 
 function rollDice(player) {
   let diceFace = Math.trunc(Math.random() * 6) + 1;
+  dice.classList.remove("hidden");
   dice.setAttribute("src", `dice-${diceFace}.png`);
 
   if (diceFace !== 1) {
@@ -83,8 +89,4 @@ btnNewGame.addEventListener("click", () => {
       ? playerOne
       : playerTwo
   );
-});
-
-testbtn.addEventListener("click", () => {
-  playerTwo.score = 100;
 });
