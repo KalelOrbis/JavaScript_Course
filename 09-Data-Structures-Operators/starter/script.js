@@ -31,3 +31,17 @@ const restaurant = {
 const arr = [1, 2, ...[3, 4]];
 const [a, b, ...others] = [1, 2, 3, 4, 5];
 console.log(a, b, others);
+
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+
+add(2, 4);
+add(5, 6, 3, 53, 5, 3, 5, 3);
+
+const x = [23, 5, 6];
+add(...x);
